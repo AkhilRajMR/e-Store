@@ -7,7 +7,7 @@ var express = require('express'),
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://estoreadmin:PjRExhLUK0iIwBA8@cluster0.blvvg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'); 
+mongoose.connect('connString'); 
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
