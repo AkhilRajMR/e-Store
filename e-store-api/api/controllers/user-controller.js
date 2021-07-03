@@ -54,13 +54,10 @@ exports.delete_a_user = function(req, res) {
 };
 
 exports.authenticate = function(req, res) {
-    console.log("request => ", req.body);
     User.findOne({username: req.body.username}, function(err, user) {
         if (err) {
-            console.log("err => ", err);
             res.send(err);
         }
-        console.log("user => ", user);
         res.json(user);
       });
   };

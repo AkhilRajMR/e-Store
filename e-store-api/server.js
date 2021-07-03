@@ -4,16 +4,17 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   User = require('./api/models/user');
+  Member = require('./api/models/member');
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('connString'); 
+mongoose.connect('mongodb+srv://estoreadmin:PjRExhLUK0iIwBA8@cluster0.blvvg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'); 
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var routes = require('./api/routes/user-routes'); //importing route
+var routes = require('./api/routes/user-routes');
 routes(app); //register the route
 
 
