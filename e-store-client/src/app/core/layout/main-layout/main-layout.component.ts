@@ -3,18 +3,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
-import { SessionService } from 'src/app/services/session.service';
-import { EStoreState } from 'src/app/states/e-store-state.service';
+import { SessionService } from 'src/app/shared/services/session.service';
+import { EStoreStates } from 'src/app/shared/states/estore-states';
 
 @Component({
-  selector: 'e-store-main-layout',
+  selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.css']
+  styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent implements OnInit, OnDestroy {
-
   isAdmin = false;
-  loggedUser!: User;
+  loggedUser: any;
 
   private _unsubscribeAll = new Subject();
 
@@ -22,7 +21,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
     public route: ActivatedRoute,
     private router: Router,
     private sessionService: SessionService,
-    private eStoreState: EStoreState
+    private eStoreState: EStoreStates
   ) {
     this.eStoreState.onUserDataChanged
       .pipe(takeUntil(this._unsubscribeAll))
@@ -49,9 +48,10 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
     this.isCollapsed = !this.isCollapsed;
   }
 
-  logout() {
-    this.sessionService.revoke();
-    this.router.navigate(['/']);
-  }
+  // logout() {
+  //   this.sessionService.revoke();
+  //   this.router.navigate(['/']);
+  // }
 
 }
+

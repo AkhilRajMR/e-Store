@@ -1,20 +1,66 @@
-<div class="col-md-4 offset-md-4 mt-5">
-    <div class="card">
-        <h4 class="card-header">TCS - Logo</h4>
-        <div class="card-body">
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+          <div class="card-header text-center">
+            <img src="./../../../../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                            style="opacity: .8; width: 5rem;">
+          </div>
+          <div class="card-body">
+            <p class="login-box-msg">Welocme to Akshayasree</p>
+      
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" formControlName="username" class="form-control" />
+              <div class="input-group mb-3">
+                <input type="text"  formControlName="username" class="form-control" placeholder="Username" required>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                  </div>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" formControlName="password" class="form-control" />
+              </div>
+              <div class="input-group mb-3">
+                <input type="password" formControlName="password" class="form-control" placeholder="Password" required>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
                 </div>
-                <button [disabled]="loading" class="btn btn-primary">
-                    Login
-                </button>
+              </div>
+              <div class="row">
+                <!-- <div class="col-8">
+                  <div class="icheck-primary">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">
+                      Remember Me
+                    </label>
+                  </div>
+                </div> -->
+                <!-- /.col -->
+                <!-- <div class="col-4">
+                  <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </div> -->
+                <!-- /.col -->
+              </div>
             </form>
+            <div *ngIf="invalidLogin" style="color:red; text-align: center;">
+              Login failed!
+            </div>
+            <div class="social-auth-links text-center mt-2 mb-3">
+              <a class="btn btn-block btn-primary" (click)="onSubmit()">
+                Sign in
+              </a>
+            </div>
+            <!-- /.social-auth-links -->
+      
+            <!-- <p class="mb-1">
+              <a href="forgot-password.html">I forgot my password</a>
+            </p> -->
+            <!-- <p class="mb-0">
+              <a href="register.html" class="text-center">Register a new membership</a>
+            </p> -->
+          </div>
+          <!-- /.card-body -->
         </div>
-    </div>
-</div>
+        <!-- /.card -->
+      </div>
+</body>

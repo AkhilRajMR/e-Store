@@ -3,37 +3,41 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { LoginComponent } from './features/login/login.component';
-import { AdminComponent } from './features/admin/admin.component';
-import { StoresComponent } from './features/stores/stores.component';
-import { HomeComponent } from './features/home/home.component';
+import { MainLayoutComponent } from './core/layout/main-layout/main-layout.component';
+import { HeaderComponent } from './core/layout/header/header.component';
+import { SidebarComponent } from './core/layout/sidebar/sidebar.component';
+import { FooterComponent } from './core/layout/footer/footer.component';
+import { SettingsComponent } from './core/layout/settings/settings.component';
+import { SessionService } from './shared/services/session.service';
+import { EStoreStates } from './shared/states/estore-states';
+import { AuthService } from './shared/services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from './services/auth.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { SessionService } from './services/session.service';
-import { EStoreState } from './states/e-store-state.service';
-import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+import { MemberService } from './shared/services/member.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    AdminComponent,
-    StoresComponent,
-    HomeComponent
+    MainLayoutComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent,
+    SettingsComponent
   ],
   imports: [
-    CoreModule,
+    BrowserModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule
   ],
   providers: [
-    AuthService,
     SessionService,
-    EStoreState,
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    EStoreStates,
+    AuthService,
+    MemberService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,25 @@
+.log-out-section {
+    margin: 10px;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.flex-display {
+    display:flex
+}
+
+.flex-view {
+    display: flex;
+    justify-content: space-between;
+}
+.close-span {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .close-span {
+        display: block;
+    }
+}

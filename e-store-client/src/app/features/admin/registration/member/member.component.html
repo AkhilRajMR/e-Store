@@ -1,0 +1,263 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Registration</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <!-- <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                <li class="breadcrumb-item active">Member</li>
+              </ol> -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <form [formGroup]="memberRegistrationForm" (ngSubmit)="onSubmit()">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Membership Form</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" formControlName="name" placeholder="Enter member name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberId">Member ID</label>
+                                    <input type="text" class="form-control" formControlName="membershipId" placeholder="Enter member id">
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" class="form-control" formControlName="age" placeholder="Enter age">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob">Date of birth</label>
+                                    <input type="date" class="form-control" formControlName="dob" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phoneNumber">Phone Number</label>
+                                    <input type="number" class="form-control" formControlName="mobileNumber" placeholder="Mobile number">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="exampleInputEmail1">Home Number</label>
+                                            <input type="number" formControlName="homeNumber" class="form-control" placeholder="Home number">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="exampleInputEmail1">Office Number</label>
+                                            <input type="number" class="form-control" formControlName="officeNumber" placeholder="Office number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <textarea class="form-control" rows="3" formControlName="address" placeholder="Enter Address..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name of Panchayath/Municipality</label>
+                                    <input type="text" class="form-control" formControlName="nameOfLocalBody" placeholder="Enter panchayath/municipality name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name of Ward/Ward Number</label>
+                                    <input type="text" class="form-control" formControlName="ward" placeholder="Enter ward name/ward number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">House Number</label>
+                                    <input type="text" class="form-control" formControlName="houseNumber" placeholder="Enter house number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name of sangh</label>
+                                    <input type="text" class="form-control" formControlName="sanghName" placeholder="Enter sangh name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">District</label>
+                                    <select class="form-control" formControlName="district" (change)="onDistrictSelect($event.target.value)">
+                                        <option *ngFor="let district of districtList" [value]="district.id">{{district.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Taluk</label>
+                                    <select class="form-control" formControlName="taluk">
+                                        <option *ngFor="let taluk of talukList" [value]="taluk.id">{{taluk.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name of Father/Mother/Husband</label>
+                                    <input type="text" class="form-control" formControlName="nameOfGuardian"
+                                        placeholder="Enter father/mother/husband name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Anual Income</label>
+                                    <input type="text" class="form-control" formControlName="anualIncome" placeholder="Enter anual income">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Occupation</label>
+                                    <input type="text" class="form-control" formControlName="occupation" placeholder="Enter occupation">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Rationcard details</label>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" formControlName="rationCardNumber"
+                                                placeholder="Enter rationcard number">
+                                        </div>
+                                        <div class="col-md-4 radio-form">
+                                            <div class="icheck-success d-inline radio-btn">
+                                                <input type="radio" name="rationCardType" formControlName="rationCardType" value="bpl" id="bpl">
+                                                <label for="bpl"> BPL
+                                                </label>
+                                            </div>
+                                            <div class="icheck-success d-inline radio-btn">
+                                                <input type="radio" name="rationCardType" formControlName="rationCardType" value="apl" id="apl">
+                                                <label for="apl"> APL
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Blood Group</label>
+                                    <input type="text" class="form-control" formControlName="bloodGroup" placeholder="Enter blood group">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Education Qualification</label>
+                                    <input type="text" class="form-control" formControlName="educationQualification" placeholder="Enter education qualification">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Religion</label>
+                                            <input type="text" class="form-control" formControlName="religion" placeholder="Enter religion">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Cast</label>
+                                            <input type="text" class="form-control" formControlName="cast" placeholder="Enter cast">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="radio-form">
+                                        <div class="icheck-success d-inline radio-btn">
+                                            <input type="radio" name="reservationCategory" formControlName="reservationCategory" value="sc" id="sc">
+                                            <label for="sc"> SC
+                                            </label>
+                                        </div>
+                                        <div class="icheck-success d-inline radio-btn">
+                                            <input type="radio" name="reservationCategory" formControlName="reservationCategory" value="st" id="st">
+                                            <label for="st"> ST
+                                            </label>
+                                        </div>
+                                        <div class="icheck-success d-inline radio-btn">
+                                            <input type="radio" name="reservationCategory" formControlName="reservationCategory" value="obc" id="obc">
+                                            <label for="obc"> OBC
+                                            </label>
+                                        </div>
+                                        <div class="icheck-success d-inline radio-btn">
+                                            <input type="radio" name="reservationCategory" formControlName="reservationCategory" value="gen" id="gen">
+                                            <label for="gen"> GEN
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Infrastructure details</label>
+                                </div>
+                                <div class="form-group">
+                                    <span for="exampleInputPassword1">Residential Housing ?</span>
+                                    <div class="icheck-success d-inline radio-btn">
+                                        <input type="radio" name="residentialHousing" formControlName="residentialHousing" value="yes" id="yesForResidentialHousing">
+                                        <label for="yesForResidentialHousing"> Yes
+                                        </label>
+                                    </div>
+                                    <div class="icheck-success d-inline radio-btn">
+                                        <input type="radio" name="residentialHousing" formControlName="residentialHousing" value="no" id="noForResidentialHousing">
+                                        <label for="noForResidentialHousing"> No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <span for="exampleInputPassword1">Is Drinking Water Available ?</span>
+                                    <div class="icheck-success d-inline radio-btn">
+                                        <input type="radio" name="drinkingWater" formControlName="drinkingWater" value="yes" id="yesForDrinkingWater">
+                                        <label for="yesForDrinkingWater"> Yes
+                                        </label>
+                                    </div>
+                                    <div class="icheck-success d-inline radio-btn">
+                                        <input type="radio" name="drinkingWater" formControlName="drinkingWater" value="no" id="noForDrinkingWater">
+                                        <label for="noForDrinkingWater"> No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <span for="exampleInputPassword1">Is Toilet Facility Available ?</span>
+                                    <div class="icheck-success d-inline radio-btn">
+                                        <input type="radio" name="toiletFacility" formControlName="toiletFacility" value="yes" id="yesForToiletFacility">
+                                        <label for="yesForToiletFacility"> Yes
+                                        </label>
+                                    </div>
+                                    <div class="icheck-success d-inline radio-btn">
+                                        <input type="radio" name="toiletFacility" formControlName="toiletFacility" value="no" id="noForToiletFacility">
+                                        <label for="noForToiletFacility"> No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <span for="exampleInputPassword1">Is Electricity Avalilable ?</span>
+                                    <div class="icheck-success d-inline radio-btn">
+                                        <input type="radio" name="electricityAvailability" formControlName="electricityAvailability" value="yes" id="yesForElectricityAvailability">
+                                        <label for="yesForElectricityAvailability"> Yes
+                                        </label>
+                                    </div>
+                                    <div class="icheck-success d-inline radio-btn">
+                                        <input type="radio" name="electricityAvailability" formControlName="electricityAvailability" value="no" id="noForElectricityAvailability">
+                                        <label for="noForElectricityAvailability"> No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group">
+                                    <label for="exampleInputFile">File input</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div> -->
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
